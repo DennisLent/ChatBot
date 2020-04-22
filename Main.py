@@ -20,9 +20,11 @@ age = str(input("Please enter your age:"))
 now = datetime.datetime.now()
 pnum = str(str(now.day) + str(now.month) + str(now.year) + str(now.hour) + str(now.minute))
 
+
 #Patient sheet for generation
 def pat_known_effects(pnum, name, age, illness, medication, side_effects, document):
     f = open(document, "r+")
+    f.readlines()
     f.write("Patient Number:" + " " + pnum)
     f.write(str("\nName:" + " " + name))
     f.write(str("\nAge:" + " " + age))
@@ -34,6 +36,7 @@ def pat_known_effects(pnum, name, age, illness, medication, side_effects, docume
 
 def pat_known(pnum, name, age, illness, medication, document):
     f = open(document, "r+")
+    f.readlines()
     f.write("Patient Number:" + " " + pnum)
     f.write(str("\nName:" + " " + name))
     f.write(str("\nAge:" + " " + age))
@@ -44,6 +47,7 @@ def pat_known(pnum, name, age, illness, medication, document):
 
 def pat_unknown(pnum, name, age, symp, med, cause, document):
     f = open(document, "r+")
+    f.readlines()
     f.write("Patient Number:" + " " + pnum)
     f.write(str("\nName:" + " " + name))
     f.write(str("\nAge:" + " " + age))
