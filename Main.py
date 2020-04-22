@@ -8,6 +8,9 @@ def yes_or_no(question):
     elif reply[0] == "n":
         return False
 
+#document for notes on patients (PLEASE NOT THIS DOCUMENT HAS TO BE IN THE SAME FOLDER AS THE PROGRAM)
+doc = "notes.txt"
+
 #introduction
 print("Hello! Welcome to AloneTogether. I am the ChatBot.")
 name = input("Please enter your name:")
@@ -23,6 +26,7 @@ def pat_known_effects(pnum, name, age, illness, medication, side_effects, docume
     f.write("Patient Number:" + " " + pnum)
     f.write(str("\nName:" + " " + name))
     f.write(str("\nAge:" + " " + age))
+    f.write(str("\n\n*****" + "PATIENT KNOWS HIS SICKNESS AND HAS SIDE EFFECTS DUE TO MEDICINE" + "*****\n"))
     f.write(str("\nIllness:" + " " + illness))
     f.write(str("\nMedication currently on:" + " " + medication))
     f.write(str("\nSide effects:" + " " + side_effects))
@@ -33,6 +37,7 @@ def pat_known(pnum, name, age, illness, medication, document):
     f.write("Patient Number:" + " " + pnum)
     f.write(str("\nName:" + " " + name))
     f.write(str("\nAge:" + " " + age))
+    f.write(str("\n\n*****" + "PATIENT KNOWS HIS SICKNESS" + "*****\n"))
     f.write(str("\nIllness:" + " " + illness))
     f.write(str("\nMedication currently on:" + " " + medication))
     f.close()
@@ -42,6 +47,7 @@ def pat_unknown(pnum, name, age, symp, med, cause, document):
     f.write("Patient Number:" + " " + pnum)
     f.write(str("\nName:" + " " + name))
     f.write(str("\nAge:" + " " + age))
+    f.write(str("\n\n*****" + "PATIENT DOES NOT KNOW HIS SICKNESS" + "*****\n"))
     f.write(str("\nSymptomes:" + " " + symp))
     f.write(str("\nMedication:" + " " + med))
     f.write(str("\nCauses for feeling bad?:" + " " + cause))
@@ -74,7 +80,7 @@ if opt==1:
             #Generate sheet for known_effects
             if appq == True:
                 print("Making an appointment")
-                pat_known_effects(pnum, name, age, illness, medication, side_effects, "notes.txt")
+                pat_known_effects(pnum, name, age, illness, medication, side_effects, doc)
                 
             elif appq == False:
                 print("Opening a website for your possible symptomes")
@@ -86,7 +92,7 @@ if opt==1:
             #Generate sheet for known_noeffects
             if appq == True:
                 print("Making an appointment")
-                pat_known(pnum, name, age, illness, medication, "notes.txt")
+                pat_known(pnum, name, age, illness, medication, doc)
             elif appq == False:
                 print("Opening a website for your possible symptomes")
                 
@@ -100,7 +106,7 @@ if opt==1:
         #Generate sheet for unknown
         if appq == True:
             print("Making an appointment")
-            pat_unknown(pnum, name, age, symp, med, cause, "notes.txt")
+            pat_unknown(pnum, name, age, symp, med, cause, doc)
         elif appq == False:
             print("Opening a website for your possible symptomes")
             
